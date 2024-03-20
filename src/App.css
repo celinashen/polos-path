@@ -1,6 +1,37 @@
 .App {
   text-align: center;
 }
+.background-image {
+  background-image: url('./background.png');
+  height: 100vh; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 200%; /* Set width larger than viewport */
+}
+.background-container {
+  height: 100vh; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+html, body {
+  overflow-y: hidden; /* Disable vertical scrolling */
+  overflow-x: hidden;
+  height: 100%; /* Ensure the body takes up the full viewport height */
+}
+
+.test {
+  margin:0;
+  padding: 0;
+}
 
 .App-logo {
   height: 40vmin;

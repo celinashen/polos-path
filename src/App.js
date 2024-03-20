@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useRef } from 'react';
 
 function App() {
+
+  const containerRef = useRef(null);
+
+  const handleScroll = (event) => {
+    const container = containerRef.current;
+    const scrollAmount = event.deltaY * 1.0;
+    container.scrollLeft += scrollAmount;
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="background-container" onWheel={handleScroll} ref={containerRef}>
+      <div className = "background-image">
+          <h1 className = "test">GeeksForGeeks</h1>
+      </div>
     </div>
   );
 }
