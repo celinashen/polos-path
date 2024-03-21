@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="background-container" onWheel={handleScroll} ref={containerRef}>
       <div className = "background-image">
-          <h1 className = "test">GeeksForGeeks</h1>
+          {/* <h1 className = "test">GeeksForGeeks</h1> */}
       </div>
     </div>
   );

@@ -2,11 +2,11 @@
   text-align: center;
 }
 .background-image {
-  background-image: url('./background.png');
+  background-image: url('./bg-3.webp');
   height: 100vh; 
   background-size: cover;
   background-repeat: no-repeat;
-  width: 200%; /* Set width larger than viewport */
+  width: 200%; 
 }
 .background-container {
   height: 100vh; 
