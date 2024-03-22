@@ -24,7 +24,7 @@ function SilkRoad() {
             <GridItem pt = "20vh" pl = "10vh" w='100%' bg='blue.100' opacity="20%"><IntroCard></IntroCard></GridItem>
             <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%" />
             <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%" />
-            <GridItem pt = "10vh" w='100%' bg='blue.100' opacity="20%"><InfoCard></InfoCard></GridItem>
+            <GridItem w='100%' bg='blue.100' opacity="20%"><InfoCard></InfoCard></GridItem>
             <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%"/>
           </Grid>
             

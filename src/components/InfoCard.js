@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardHeader, CardBody, CardFooter, Text } from '@chakra-ui/react';
+import Artifact from './Artifact';
 import { motion } from 'framer-motion';
 import './InfoCard.css';
 
@@ -12,7 +13,7 @@ function InfoCard() {
             as={motion.div}
             layout
             bg='orange.400'
-            whileHover={{ scale: 1.1 }}
+            whileHover={!isOpen ? { scale: 1.1 } : {}}
             whileTap={{ scale: 0.9 }}
             transition='0.2s easeOut'
             onClick={() => setIsOpen(!isOpen)}
@@ -20,9 +21,16 @@ function InfoCard() {
             data-isOpen={isOpen}
             className = "parent"
             >
-            <CardBody as={motion.div} layout className = "child">
-                <Text>You discovered a Paiza</Text>
-            </CardBody>
+            
+            {!isOpen ? (
+                <CardBody as={motion.div} layout className="child">
+                    <Text>You discovered a Paiza</Text>
+                </CardBody>
+            ) : (
+                <CardBody as={motion.div} layout className="child">
+                    <Artifact></Artifact>
+                </CardBody>
+            )}
         </Card>
     );
   }
