@@ -21,11 +21,11 @@ function SilkRoad() {
       <div className="background-container" onWheel={handleScroll} ref={containerRef}>
         <div className = "background-image">
           <Grid templateColumns='repeat(5, 1fr)' gap={6}>
-            <GridItem w='100%' bg='blue.100' opacity="20%"><IntroCard></IntroCard></GridItem>
-            <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%" />
-            <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%" />
-            <GridItem w='100%' bg='blue.100' opacity="20%"><InfoCard></InfoCard></GridItem>
-            <GridItem w='100%' h='100vh' bg='blue.100' opacity="20%"/>
+            <GridItem w='100%'><IntroCard title="The Silk Road" description="Explore Marco Polo's journey through the Silk Road and find new artifacts along the way!"></IntroCard></GridItem>
+            <GridItem w='100%' h='100vh' />
+            <GridItem w='100%' h='100vh' />
+            <GridItem w='100%' ><InfoCard posFromTop="30vh" closedText={"Learn more about the Paiza"} openText={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec nunc id erat ultrices posuere a non orci. Etiam dapibus neque imperdiet nunc pellentesque interdum id et mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras lacinia eu ante nec lacinia."}></InfoCard></GridItem>
+            <GridItem w='100%' h='100vh'/>
           </Grid>
             
             {/* <h1 className = "test">GeeksForGeeks</h1> */}

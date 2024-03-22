@@ -4,7 +4,7 @@ import Artifact from './Artifact';
 import { motion } from 'framer-motion';
 import './InfoCard.css';
 
-function InfoCard() {
+function InfoCard({posFromTop, closedText, openText}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -12,19 +12,21 @@ function InfoCard() {
         <Card 
             as={motion.div}
             layout
-            bg='orange.400'
+            bg='white'
+            opacity={!isOpen ? "90%" : "100%"}
             whileHover={!isOpen ? { scale: 1.1 } : {}}
-            whileTap={{ scale: 0.9 }}
+            whileTap={!isOpen ? { scale: 0.9 } : {scale: 0.995}}
             transition='0.2s easeOut'
             onClick={() => setIsOpen(!isOpen)}
             initial={{ borderRadius: 5 }}
             data-isOpen={isOpen}
             className = "parent"
-            >
+            mt={!isOpen ? posFromTop : "10vh"}
+        >
             
             {!isOpen ? (
                 <CardBody as={motion.div} layout className="child">
-                    <Text>You discovered a Paiza</Text>
+                    <Text>{closedText}</Text>
                 </CardBody>
             ) : (
                 <CardBody as={motion.div} layout className="child-open">
@@ -32,7 +34,7 @@ function InfoCard() {
                         <GridItem colSpan={3}>
                             <Artifact link = "https://www.youtube.com/embed/67M1c8cpbvg?autoplay=1&controls=0&mute=1"></Artifact>
                         </GridItem>
-                        <GridItem colSpan={1}>Hi there</GridItem>
+                        <GridItem colSpan={1}>{openText}</GridItem>
                     </Grid>
                 </CardBody>
             )}
