@@ -1,0 +1,15 @@
+.parent {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .parent[data-isOpen="true"] {
+    width: 80vw;
+    height: 80vh;
+  }
+  
+  .child {
+    
+  }

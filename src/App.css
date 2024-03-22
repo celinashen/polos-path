@@ -1,26 +1,11 @@
 .App {
   text-align: center;
 }
-.background-image {
-  background-image: url('./bg-3.webp');
-  height: 100vh; 
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 200%; 
-}
-.background-container {
-  height: 100vh; 
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  overflow-y: hidden;
-}
+
 
 ::-webkit-scrollbar {
   display: none;
 }
-
-
 
 html, body {
   overflow-y: hidden; /* Disable vertical scrolling */
