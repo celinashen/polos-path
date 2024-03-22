@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter, Text } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter, Text, Grid, GridItem } from '@chakra-ui/react';
 import Artifact from './Artifact';
 import { motion } from 'framer-motion';
 import './InfoCard.css';
@@ -27,8 +27,13 @@ function InfoCard() {
                     <Text>You discovered a Paiza</Text>
                 </CardBody>
             ) : (
-                <CardBody as={motion.div} layout className="child">
-                    <Artifact></Artifact>
+                <CardBody as={motion.div} layout className="child-open">
+                    <Grid templateColumns='repeat(4, 1fr)' gap={6} minH="100%">
+                        <GridItem colSpan={3}>
+                            <Artifact link = "https://www.youtube.com/embed/67M1c8cpbvg?autoplay=1&controls=0&mute=1"></Artifact>
+                        </GridItem>
+                        <GridItem colSpan={1}>Hi there</GridItem>
+                    </Grid>
                 </CardBody>
             )}
         </Card>

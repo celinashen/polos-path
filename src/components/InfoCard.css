@@ -7,11 +7,16 @@
     margin-top: 10vh;
   }
   
-  .parent[data-isOpen="true"] {
-    width: 80vw;
-    height: 80vh;
-  }
-  
-  .child {
-    
-  }
+.parent[data-isOpen="true"] {
+width: 80vw;
+height: 80vh;
+}
+
+.child {
+
+}
+
+.child-open {
+width: 80vw;
+height: 80vh;
+}
