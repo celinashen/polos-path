@@ -1,0 +1,14 @@
+.background-image-atlantic {
+    background-image: url('../../public/img/background.png');
+    height: 100vh; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 215%; 
+  }
+  .background-container-atlantic {
+    height: 100vh; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-y: hidden;
+  }

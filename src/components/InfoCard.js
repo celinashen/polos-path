@@ -32,7 +32,7 @@ function InfoCard({posFromTop, closedText, openText}) {
                 <CardBody as={motion.div} layout className="child-open">
                     <Grid templateColumns='repeat(4, 1fr)' gap={6} minH="100%">
                         <GridItem colSpan={3}>
-                            <Artifact link = "https://www.youtube.com/embed/67M1c8cpbvg?autoplay=1&controls=0&mute=1"></Artifact>
+                            <Artifact link = "https://www.youtube.com/embed/CHHiIJ0acXo?si=xIYAhq9kCJRgg0g1&amp;autoplay=1&controls=0&mute=1"></Artifact>
                         </GridItem>
                         <GridItem colSpan={1}>{openText}</GridItem>
                     </Grid>
@@ -41,6 +41,8 @@ function InfoCard({posFromTop, closedText, openText}) {
         </Card>
     );
   }
+
+//   <iframe width="560" height="315" src="https://www.youtube.com/embed/CHHiIJ0acXo?si=xIYAhq9kCJRgg0g1&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 //   
 //   const [isOpen, setIsOpen] = useState(false);
 //   return (

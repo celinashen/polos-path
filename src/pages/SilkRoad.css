@@ -1,14 +1,7 @@
 .background-image {
-  background-image: url('../img/bg-3.webp');
+  background-image: url('../../public/img/bg-3.webp');
   height: 100vh; 
   background-size: cover;
   background-repeat: no-repeat;
   width: 215%; 
-}
-.background-container {
-  height: 100vh; 
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  overflow-y: hidden;
 }
