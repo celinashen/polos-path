@@ -40,7 +40,7 @@ function Intro() {
         setIsTransitioning(true);
         setClickPosition({ x: event.clientX, y: event.clientY });
         setTimeout(() => {
-            window.location.href = '/silkroad';
+            window.location.href = '/venice';
         }, 600); // Adjust the delay as needed to match your animation duration
     };
 
@@ -79,7 +79,7 @@ function Intro() {
                     <GridItem>
                         {isDoneTyping && (
                             <Flex w="100%" direction={"row"} p={'10%'}>
-                                <Link to={'/silkdroad'} style={{ textDecoration: 'none' }} onClick={handleClick}>
+                                <Link to={'/venice'} style={{ textDecoration: 'none' }} onClick={handleClick}>
                                     <Button 
                                         rightIcon={<MdNavigateNext />} 
                                         color='#FFFFFF'

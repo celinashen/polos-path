@@ -13,6 +13,7 @@ import {
 import Atlantic from './pages/Atlantic';
 import Landing from './pages/Landing';
 import Intro from './pages/Intro';
+import Venice from './pages/Venice';
 
 import { AnimatePresence, motion, Spring } from "framer-motion";
 
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path='/' element = {<Landing/>}/>
           <Route path='/polospath' element = {<Intro/>}/>
+          <Route path='/venice' element = {<Venice/>}/>
           <Route path='/silkroad' element = {<SilkRoad/>}/>
           <Route path='/atlantic' element = {<Atlantic/>}/>
         </Routes>
