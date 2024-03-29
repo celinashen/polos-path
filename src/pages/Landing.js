@@ -43,7 +43,7 @@ function Landing() {
     };
 
   return (
-      <div className="background-container" onWheel={handleScroll} ref={containerRef}>
+      <div className="background-container-landing" onWheel={handleScroll} ref={containerRef}>
             <Grid templateColumns='repeat(2, 1fr)' gap={6} h='100vh'>
                 <GridItem h='100%' w='100%'>
                     <Box boxSize='sm' h='100%' w='100%' p='50px'>
