@@ -83,7 +83,7 @@ function Landing() {
                         position: 'absolute',
                         top: clickPosition.y,
                         left: clickPosition.x,
-                        backgroundColor: 'white',
+                        backgroundColor: '#2E2E2E',
                         borderRadius: '50%',
                         width: '1px',
                         height: '1px',
