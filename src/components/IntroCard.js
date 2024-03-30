@@ -13,13 +13,14 @@ function IntroCard({title, description}) {
                     <Heading color="#FFFFFF" mb="10%">{title}</Heading>
                     <TypeAnimation
                         sequence={[
+                            1800,
                             description.split(" ").join(" ")
                         ]}
                         omitDeletionAnimation={true}
                         wrapper="span"
                         speed={60}
                         style={{ fontSize: '1em', display: 'inline-block', color: "#FFFFFF" }}
-                    />
+                    />    
                 </CardBody>
             </Card>
         </Flex>

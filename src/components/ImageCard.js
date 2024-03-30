@@ -5,7 +5,7 @@ import Narrator from './Narrator';
 
 
 
-function ImageCard({posFromTop, synopsis, cta, hasAvatar}) {
+function ImageCard({posFromTop, synopsis, cta, hasAvatar, src, hasImageDescription, imageDescription}) {
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleCard = () => {
@@ -42,15 +42,20 @@ function ImageCard({posFromTop, synopsis, cta, hasAvatar}) {
                 exit={{ opacity: 0, y: '50%' }}
             >
                 <CardBody as={motion.div} layout className='child-open' maxH='80vh' maxW='100%'>
-                <Grid templateColumns='repeat(3, 1fr)' minH='100%'>
-                    <GridItem colSpan={3} maxW='100%'>
-                    <Image
-                        maxW='100%'
-                        objectFit='contain'
-                        src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                        alt='Chakra UI'
-                    />
+                <Grid templateColumns='repeat(3, 1fr)' gap={3} minH='100%'>
+                    <GridItem colSpan={hasImageDescription ? 2 : 3} maxW='100%'>
+                        <Image
+                            maxW='100%'
+                            objectFit='contain'
+                            src={src}
+                            alt='Chakra UI'
+                        />
                     </GridItem>
+                    {hasImageDescription && (
+                        <GridItem colSpan={1}>
+                            <Text>{imageDescription}</Text>
+                        </GridItem>
+                    )}
                 </Grid>
                 </CardBody>
             </Card>
@@ -75,8 +80,9 @@ function ImageCard({posFromTop, synopsis, cta, hasAvatar}) {
             {hasAvatar && (
                 <Narrator/>
             )}
-            <Text fontSize={'sm'}>{synopsis}</Text>
-            <Text fontSize={'sm'} mt='10%'>{cta}</Text>
+            {synopsis.map((str, index) => (
+                <Text key={index} mb='5%'>{str}</Text>
+            ))}
         </CardBody>
       </Card>
     </>

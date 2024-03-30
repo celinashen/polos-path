@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useRef } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import SilkRoad from './pages/SilkRoad';
+import Mongol from './pages/Mongol';
 import theme from './theme';
 import {
   BrowserRouter as Router,
@@ -10,10 +10,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Atlantic from './pages/Atlantic';
+import Afghanistan from './pages/Afghanistan';
 import Landing from './pages/Landing';
 import Intro from './pages/Intro';
 import Venice from './pages/Venice';
+import Tibet from './pages/Tibet';
 
 import { AnimatePresence, motion, Spring } from "framer-motion";
 
@@ -33,8 +34,9 @@ function App() {
           <Route path='/' element = {<Landing/>}/>
           <Route path='/polospath' element = {<Intro/>}/>
           <Route path='/venice' element = {<Venice/>}/>
-          <Route path='/silkroad' element = {<SilkRoad/>}/>
-          <Route path='/atlantic' element = {<Atlantic/>}/>
+          <Route path='/afghanistan' element = {<Afghanistan/>}/>
+          <Route path='/mongol' element = {<Mongol/>}/>
+          <Route path='/tibet' element = {<Tibet/>}/>
         </Routes>
       </ChakraProvider>
     </Router>

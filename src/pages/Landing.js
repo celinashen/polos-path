@@ -1,7 +1,7 @@
 
 import './Landing.css';
 import React, { useEffect, useRef } from 'react';
-import InfoCard from '../components/InfoCard';
+import InfoCard from '../components/ArtifactCard';
 import IntroCard from '../components/IntroCard';
 import { 
     Grid, 

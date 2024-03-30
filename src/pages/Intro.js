@@ -1,7 +1,7 @@
 
 import './Intro.css';
 import React, { useEffect, useRef } from 'react';
-import InfoCard from '../components/InfoCard';
+import InfoCard from '../components/ArtifactCard';
 import IntroCard from '../components/IntroCard';
 import { 
     Grid, 
@@ -50,7 +50,7 @@ function Intro() {
         // Creating a timeout within the useEffect hook
         setTimeout(() => {
             setIsDoneTyping(true);
-        }, 19500);
+        }, 19500); //19500
     }, []);
 
 
@@ -80,7 +80,7 @@ function Intro() {
                         
                     </GridItem>
                     <GridItem rowSpan={2}>
-                        <Flex h='100%' w='100%' direction={'column'} justifyContent={'center'} p={'10%'}>
+                        <Flex h='100%' w='100%' direction={'column'} justifyContent={'center'} pl={'10%'} pr='10%'>
                             <TypeAnimation
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
@@ -132,15 +132,16 @@ function Intro() {
                 {isTransitioning && (
                 <motion.div
                     initial={{ scale: 0 }}
-                    animate={{ scale: 2500 }}
+                    animate={{ scale: 3000 }}
                     style={{
-                    position: 'absolute',
-                    top: clickPosition.y,
-                    left: clickPosition.x,
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    width: '1px',
-                    height: '1px',
+                        position: 'absolute',
+                        top: clickPosition.y,
+                        left: clickPosition.x,
+                        backgroundColor: '#2E2E2E',
+                        borderRadius: '50%',
+                        width: '1px',
+                        height: '1px',
+                        
                     }}
                 />
                 )}
