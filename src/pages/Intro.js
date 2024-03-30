@@ -12,7 +12,9 @@ import {
     Image,
     Text,
     Card,
-    Button
+    Button,
+    Avatar,
+    Heading
 } from '@chakra-ui/react';
 import Next from '../components/NextBtn';
 import DialogueCard from '../components/DialogueCard';
@@ -48,7 +50,7 @@ function Intro() {
         // Creating a timeout within the useEffect hook
         setTimeout(() => {
             setIsDoneTyping(true);
-        }, 21000);
+        }, 19500);
     }, []);
 
 
@@ -56,29 +58,52 @@ function Intro() {
       <div className="background-container" onWheel={handleScroll} ref={containerRef}>
         <Flex h='100%' w='100%' direction={'column'} justifyContent={'center'} alignItems={'center'}>
             <Card h="80vh" w="90vw" opacity={'90%'}>
-                <Grid templateRows='repeat(2, 1fr)' gap={3}>
-                    <GridItem>
+                <Grid templateRows='repeat(4, 1fr)' gap={3} maxH='100%' minH='100%'>
+                    <GridItem maxH='10%' rowSpan={1}>
+                        <Flex direction={'column'} justifyContent={'center'} pt={'10%'} pl={'10%'} pr={'10%'}>
+                            <Grid templateColumns='repeat(4, 1fr)' maxH='40%'>
+                                <GridItem colSpan={1}>
+                                    <Flex h='100%' w='100%' flexDirection='row' alignItems={'center'} >
+                                        <Image borderColor="#D4A751" name='' size='xl' maxH='15vh' src={'/img/narrator.png'} />
+                                    </Flex>
+                                </GridItem>
+                                <GridItem colSpan={3}>
+                                    <Flex h='100%' w='100%' direction='row' alignItems='center'>
+                                        <Box>
+                                            <Heading size='lg'>Rustichello</Heading>
+                                            <Text>Marco Polo's Fellow Friend</Text>
+                                        </Box>
+                                    </Flex>
+                                </GridItem>
+                            </Grid>
+                        </Flex>
+                        
+                    </GridItem>
+                    <GridItem rowSpan={2}>
                         <Flex h='100%' w='100%' direction={'column'} justifyContent={'center'} p={'10%'}>
-                        <TypeAnimation
-                            sequence={[
-                                // Same substring at the start will only be typed out once, initially
-                                'Welcome to Polo’s Path!',
-                                1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                'Here, you’ll get to travel with Marco Polo for portions of his 24-year journey.',
-                                1000,
-                                'You’ll also get to check out some of the interesting things he saw along the way!',
-                                1000,
-                                'Are you ready?'
-                            ]}
-                            wrapper="span"
-                            speed={60}
-                            style={{ fontSize: '2em', display: 'inline-block' }}
-                        />
+                            <TypeAnimation
+                                sequence={[
+                                    // Same substring at the start will only be typed out once, initially
+                                    'Welcome to Polo’s Path!',
+                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                                    "I'm Rustichello - a friend of Marco Polo. We met in a Genoese prison where he recounted many of his adventures.",
+                                    1000,
+                                    "Here, I'll bring you along to travel with Marco Polo for portions of his 24-year journey.",
+                                    1000,
+                                    'You’ll also get to check out some of the interesting things he saw along the way!',
+                                    1000,
+                                    'Are you ready?'
+                                ]}
+                                wrapper="span"
+                                speed={60}
+                                style={{ fontSize: '2em', display: 'inline-block' }}
+                                omitDeletionAnimation={true}
+                            />
                         </Flex>
                     </GridItem>
-                    <GridItem>
+                    <GridItem rowSpan={1}>
                         {isDoneTyping && (
-                            <Flex w="100%" direction={"row"} p={'10%'}>
+                            <Flex w="100%" direction={"row"} pl='10%' pr='10%' pb='10%'>
                                 <Link to={'/venice'} style={{ textDecoration: 'none' }} onClick={handleClick}>
                                     <Button 
                                         rightIcon={<MdNavigateNext />} 
