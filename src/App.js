@@ -1,25 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useRef } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import SilkRoad from './pages/SilkRoad';
+import theme from './theme';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Atlantic from './pages/Atlantic';
+import Landing from './pages/Landing';
+import Intro from './pages/Intro';
+import Venice from './pages/Venice';
+
+import { AnimatePresence, motion, Spring } from "framer-motion";
 
 function App() {
+  const transitionSpringPhysics = {
+    type: "spring",
+    mass: 0.2,
+    stiffness: 80,
+    damping: 10,
+  };
+  const transitionColor = "deepskyblue";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ChakraProvider theme={theme}>
+        <Routes>
+          <Route path='/' element = {<Landing/>}/>
+          <Route path='/polospath' element = {<Intro/>}/>
+          <Route path='/venice' element = {<Venice/>}/>
+          <Route path='/silkroad' element = {<SilkRoad/>}/>
+          <Route path='/atlantic' element = {<Atlantic/>}/>
+        </Routes>
+      </ChakraProvider>
+    </Router>
   );
 }
 
 export default App;
+

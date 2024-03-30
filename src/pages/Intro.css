@@ -1,0 +1,12 @@
+
+.background-container {
+    height: 100vh; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-y: hidden;
+    background-image: url('../../public/img/silkroad.webp');
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+  }
+
+  /* background-image: url('../../public/img/landing-bg.png'); */
