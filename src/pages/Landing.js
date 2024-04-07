@@ -15,7 +15,7 @@ import {
     Button
 } from '@chakra-ui/react';
 import Next from '../components/NextBtn';
-import DialogueCard from '../components/DialogueCard';
+import DialogueCard from '../components/StaticCard';
 import { MdNavigateNext } from "react-icons/md";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';

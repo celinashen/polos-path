@@ -5,7 +5,7 @@ import Narrator from './Narrator';
 
 
 
-function DialogueCard({posFromTop, hasAvatar, hasImage, text, src}) {
+function StaticCard({posFromTop, hasAvatar, hasImage, text, src}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -32,4 +32,4 @@ function DialogueCard({posFromTop, hasAvatar, hasImage, text, src}) {
     );
   }
   
-  export default DialogueCard;
+  export default StaticCard;

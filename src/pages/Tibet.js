@@ -5,7 +5,7 @@ import InfoCard from '../components/ArtifactCard';
 import IntroCard from '../components/IntroCard';
 import { Grid, GridItem, Flex, Center } from '@chakra-ui/react';
 import Next from '../components/NextBtn';
-import DialogueCard from '../components/DialogueCard';
+import StaticCard from '../components/StaticCard';
 import ImageCard from '../components/ImageCard';
 import ArtifactCard from '../components/ArtifactCard';
 import { AnimatePresence } from 'framer-motion';
