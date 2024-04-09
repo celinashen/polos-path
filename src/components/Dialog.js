@@ -22,8 +22,9 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
         }
         setIsOpen(!isOpen);
     };
-
-    dialog.push(() => setShowOptions(true));
+    if (options) {
+        dialog.push(() => setShowOptions(true));
+    }
 
     return (
         <>

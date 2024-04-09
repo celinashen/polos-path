@@ -7,6 +7,7 @@ import { Grid, GridItem, Flex } from '@chakra-ui/react';
 import Next from '../components/NextBtn';
 import CircleExitAnim from '../components/CircleExitAnim';
 import { AnimatePresence } from 'framer-motion';
+import Dialog from '../components/Dialog';
 
 function Afghanistan () {
 
@@ -36,18 +37,23 @@ function Afghanistan () {
         {!isLoading && (
           <div className = "background-image-atlantic">
             <Grid templateColumns='repeat(5, 1fr)' gap={6}>
-              <GridItem w='100%'><IntroCard title="Afghanistan" description="One of the countries the Polos travelled through early in his journey was Afghanistan. The travellers enjoyed the calm weather of Afghanistan, and stayed for a year (possibly because they fell sick with malaria too!). While they were there, they came across many colourful natural materials! See if you can spot them nearby…"></IntroCard></GridItem>
+              <GridItem w='100%'><IntroCard title="Afghanistan" description="One of the countries the Polos traveled through early in his journey was Afghanistan."></IntroCard></GridItem>
               <GridItem w='100%' h='100vh'>
-                <InfoCard 
-                  posFromTop='80vh' 
-                  artifact='https://www.youtube.com/embed/CHHiIJ0acXo?si=xIYAhq9kCJRgg0g1&amp;autoplay=1&controls=0&mute=1' 
-                  artifactDescription={[
-                    'You found some Balas Rubies!',
-                    'Balas Rubies are a type of bright red gemstone mined in Afghanistan.',
-                    'In his accounts, Marco wrote that the King was extremely protective of these rubies. He wouldn’t allow anyone else to mine them, and would only send them to friends or exchange them for gold or silver!'
-                  ]}
-                  src={'/img/ruby.png'}  
-                />
+                <Dialog
+                    posFromTop={'30vh'}
+                    charSrc={'/img/narrator.png'}  
+                    imageMaxWProp={'70%'}
+                    isCard={false}
+                    dialogSeq={[
+                      'The travellers enjoyed the calm weather of Afghanistan, and stayed for a year (possibly because they fell sick with malaria too!).', 
+                      800,
+                      'While they were there, they came across many colourful natural materials!', 
+                      800,
+                      'See if you can spot them nearby…'
+                    ]}
+                    charName='Rustichello'
+                    charRole="Marco Polo's Friend"
+                  />
               </GridItem>
               <GridItem w='100%' h='100vh' >
               </GridItem>
@@ -77,3 +83,16 @@ function Afghanistan () {
 }
 
 export default Afghanistan;
+
+
+
+/* <InfoCard 
+                  posFromTop='80vh' 
+                  artifact='https://www.youtube.com/embed/CHHiIJ0acXo?si=xIYAhq9kCJRgg0g1&amp;autoplay=1&controls=0&mute=1' 
+                  artifactDescription={[
+                    'You found some Balas Rubies!',
+                    'Balas Rubies are a type of bright red gemstone mined in Afghanistan.',
+                    'In his accounts, Marco wrote that the King was extremely protective of these rubies. He wouldn’t allow anyone else to mine them, and would only send them to friends or exchange them for gold or silver!'
+                  ]}
+                  src={'/img/ruby.png'}  
+                /> */
