@@ -31,10 +31,15 @@ function Next({destination, next}) {
             <Link to={next} style={{ textDecoration: 'none' }} onClick={handleClick}>
             <Button 
                 rightIcon={<MdNavigateNext />} 
-                colorScheme='teal' 
+                colorScheme='white'
+                bgColor={'#2E2C2C'}
+                color='white'
+                opacity='90%'
                 size='lg'
                 as={motion.div}
-                whileHover={{scale: 1.1}}
+                whileHover={{
+                    scale: 1.1,
+                }}
                 whileTap={{scale: 0.9}}
                 transition='0.05s easeOut'
                 style={{cursor:"pointer"}}

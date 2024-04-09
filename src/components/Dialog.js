@@ -5,33 +5,25 @@ import { motion } from 'framer-motion';
 import './Dialog.css';
 import { TypeAnimation } from 'react-type-animation';
 
-function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, options}) {
+function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, options, showImage, imageMaxWProp, imageSrc}) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
     const [index, setIndex] = useState(0);
     const [showAnswer, setShowAnswer] = useState(false);
-    const [answer, setAnswer] = useState('hello');
+    const [answer, setAnswer] = useState();
     const [dialog, setDialog] = useState(dialogSeq);
 
     const toggleCard = () => {
+        if (isOpen) { // reset everything
+            setShowOptions(false);
+            setShowAnswer(false);
+            setAnswer('');
+        }
         setIsOpen(!isOpen);
     };
 
-    const answerQuestion = (option) => {
-        setAnswer([options[option]]);
-        setShowOptions(false);
-        setShowAnswer(true);
-    };
-
     dialog.push(() => setShowOptions(true));
-
-    useEffect(() => {
-        if (showAnswer) {
-            console.log("Show Answer:", answer);
-            setDialog([]);
-        }
-    }, [showAnswer, answer]);
 
     return (
         <>
@@ -65,7 +57,7 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                         src={charSrc}
                         alt='Chakra UI'
                     />
-                    <Box pl='5%'>
+                    <Box pl='2%'>
                         <Heading size='sm' color='white'>{charName}</Heading>
                         <Text color='white'>{charRole}</Text>
                     </Box>
@@ -79,8 +71,50 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                     exit={{ opacity: 0, y: '50%' }}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <CardBody as={motion.div} layout className="child-open">
-                        <Flex direction = 'column'>
+                    {!showImage && (
+                        <CardBody as={motion.div} layout className="child-open">
+                            <Flex direction = 'column'>
+                                {!showAnswer && (
+                                    <TypeAnimation
+                                        sequence={dialog}
+                                        wrapper="span"
+                                        speed={60}
+                                        style={{ fontSize: '1em', display: 'inline-block' }}
+                                        omitDeletionAnimation={true}
+                                        cursor={false}
+                                    />
+                                )}
+                                {showAnswer && (
+                                    <TypeAnimation
+                                        sequence={answer}
+                                        wrapper="span"
+                                        speed={60}
+                                        style={{ fontSize: '1em', display: 'inline-block' }}
+                                        omitDeletionAnimation={true}
+                                        cursor={false}
+                                    />
+                                )}
+                                {showOptions && (
+                                    <Flex flexDirection = 'row' mt='3%'>
+                                        {
+                                            Object.entries(options).map(([key, optionValues]) => (
+                                                <Button mr='2%' minW='10%' onClick={() => {
+                                                    setAnswer([options[key]]);
+                                                    setShowAnswer(true);
+                                                    setShowOptions(false);
+                                                }}>
+                                                    {key}
+                                                </Button>
+                                            ))
+                                        }
+                                    </Flex>
+                                    
+                                )}
+                            </Flex>
+                        </CardBody>
+                    )}
+                    {showImage && (
+                        <CardBody as={motion.div} layout className="child-open" maxH='100%' maxW='100%'>
                             {!showAnswer && (
                                 <TypeAnimation
                                     sequence={dialog}
@@ -92,14 +126,19 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                                 />
                             )}
                             {showAnswer && (
-                                <TypeAnimation
-                                    sequence={answer}
-                                    wrapper="span"
-                                    speed={60}
-                                    style={{ fontSize: '1em', display: 'inline-block' }}
-                                    omitDeletionAnimation={true}
-                                    cursor={false}
-                                />
+                                <Grid templateColumns='repeat(3, 1fr)' gap={3} minH='100%' maxH='100%'>
+                                    <GridItem colSpan={3} minW='100%' minH={'100%'}>
+                                        <Flex direction='row' justifyContent={'center'} alignItems={'center'}>
+                                            <Image
+                                                maxH='60vh'
+                                                objectFit='cover'
+                                                src={imageSrc}
+                                                alt='Chakra UI'
+                                            />
+                                        </Flex>
+                                        
+                                    </GridItem>
+                                </Grid>
                             )}
                             {showOptions && (
                                 <Flex flexDirection = 'row' mt='3%'>
@@ -117,24 +156,37 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                                 </Flex>
                                 
                             )}
-                        </Flex>
-                    </CardBody>
+                        </CardBody>
+                    )}
                 </Card>
-                
             </div>
         )}
 
       {/* Original card */}
       {!isCard ? (
-        <Box boxSize='xs' maxW='20%' minH='100%' pt={posFromTop}>
-            <Image
-                maxW='60%'
-                style={{cursor:"pointer"}}
-                onClick={toggleCard}
-                objectFit='contain'
-                src={charSrc}
-                alt='Chakra UI'
-                />
+        <Box boxSize='xs' maxW='70%' minH='100%' pt={posFromTop}>
+            <Box 
+                maxW={imageMaxWProp}
+                
+                as={motion.div}
+                layout
+                animate={{
+                    y: [0, -15, 0], // Define the animation sequence for the vertical movement
+                    transition: {
+                        duration: 2, // Duration of each animation cycle
+                        ease: 'easeInOut', // Easing function
+                        repeat: Infinity, // Loop the animation infinitely
+                    },
+                    }}
+            >
+                <Image
+                    style={{cursor:"pointer"}}
+                    onClick={toggleCard}
+                    objectFit='contain'
+                    src={charSrc}
+                    alt='Chakra UI'
+                    />
+            </Box>
         </Box>
       ) : (
         <Card

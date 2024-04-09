@@ -1,5 +1,5 @@
-.background-image {
-    background-image: url('../../public/img/silkroad.webp');
+.background-image-venice {
+    background-image: url('../../public/img/Venice.png');
     height: 100vh; 
     background-size: cover;
     background-repeat: no-repeat;
