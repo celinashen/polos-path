@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.268f082d.css",
+    "main.js": "/static/js/main.15f8a3b5.js",
+    "static/js/453.1e5f5210.chunk.js": "/static/js/453.1e5f5210.chunk.js",
+    "static/media/Malabar.png": "/static/media/Malabar.1d1e4b5a1edb78a37f2d.png",
+    "static/media/Afghanistan.png": "/static/media/Afghanistan.732ae430d6a91e205846.png",
+    "static/media/Venice.png": "/static/media/Venice.eb089b635af5260edc55.png",
+    "static/media/silkroad.webp": "/static/media/silkroad.07133a93ad32c58ccc6f.webp",
+    "static/media/Mongol.png": "/static/media/Mongol.0becd774572dc3210fa5.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.268f082d.css.map": "/static/css/main.268f082d.css.map",
+    "main.15f8a3b5.js.map": "/static/js/main.15f8a3b5.js.map",
+    "453.1e5f5210.chunk.js.map": "/static/js/453.1e5f5210.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.268f082d.css",
+    "static/js/main.15f8a3b5.js"
+  ]
+}
