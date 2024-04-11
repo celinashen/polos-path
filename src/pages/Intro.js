@@ -51,7 +51,7 @@ function Intro() {
         // Creating a timeout within the useEffect hook
         setTimeout(() => {
             setIsDoneTyping(true);
-        }, 19500); //19500
+        }, 19800); //19500
     }, []);
 
     const [isLoading, setIsLoading] = useState(true);

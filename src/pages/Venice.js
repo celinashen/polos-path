@@ -44,7 +44,7 @@ function Venice() {
               <GridItem w='100%'><IntroCard title="Venice" description="We begin in Venice, a bustling city in Italy, because this is where Marco was born in the year 1254 C.E., over 700 years ago. Keep scrolling to learn more!"></IntroCard></GridItem>
               <GridItem w='100%' >
                 <Dialog
-                    posFromTop={'60vh'}
+                    posFromTop={'40vh'}
                     charSrc={'/img/narrator.png'}  
                     imageMaxWProp={'70%'}
                     isCard={false}
@@ -108,7 +108,6 @@ function Venice() {
                     800,
                     "Now let’s follow the Silk Road, and head to our next location… Afghanistan!"
                   ]}
-
                 />
               </GridItem>
               <GridItem w='100%' h='100vh' style={{textAlign: "center"}} bgGradient='linear(to-r, green.200, gray.)'>

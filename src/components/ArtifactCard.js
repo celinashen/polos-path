@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Card, CardHeader, CardBody, CardFooter, Text, Grid, GridItem, Image, Box } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter, Text, Grid, GridItem, Image, Box, Flex } from '@chakra-ui/react';
 import Artifact from './Artifact';
 import { motion } from 'framer-motion';
 import './ArtifactCard.css';
 
-function InfoCard({posFromTop, src, artifact, artifactDescription, isCard, synopsis}) {
+function ArtifactCard({posFromTop, src, artifact, artifactDescription, isCard, synopsis, imageSrc, hasImage}) {
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleCard = () => {
@@ -42,7 +42,20 @@ function InfoCard({posFromTop, src, artifact, artifactDescription, isCard, synop
                 <CardBody as={motion.div} layout className="child-open">
                     <Grid templateColumns='repeat(4, 1fr)' gap={6} minH="100%">
                         <GridItem colSpan={3}>
-                            <Artifact link={artifact}></Artifact>
+                            {hasImage && (
+                                <Flex direction='row' justifyContent='center'>
+                                    <Image
+                                        maxW='50%'
+                                        maxH='40vh'
+                                        objectFit='contain'
+                                        src={imageSrc}
+                                        alt='Chakra UI'
+                                    />
+                                </Flex>
+                            )}
+                            {!hasImage && (
+                                <Artifact link={artifact}></Artifact>
+                            )}
                         </GridItem>
                         <GridItem colSpan={1}>
                             {artifactDescription.map((str, index) => (
@@ -57,8 +70,24 @@ function InfoCard({posFromTop, src, artifact, artifactDescription, isCard, synop
 
       {/* Original card */}
       {!isCard ? (
-        <Box boxSize='xs' maxW='20%' minH='100%' pt={posFromTop}>
-            <Image
+        <Box 
+            boxSize='md' 
+            maxW='60%' 
+            minH='100%' 
+            pt={posFromTop}
+            as={motion.div}
+            layout
+            animate={{
+                y: [0, -15, 0], // Define the animation sequence for the vertical movement
+                transition: {
+                    duration: 2, // Duration of each animation cycle
+                    ease: 'easeInOut', // Easing function
+                    repeat: Infinity, // Loop the animation infinitely
+                },
+            }}
+        >
+            <Flex direction="row" justifyContent={'center'}>
+                <Image
                 maxW='60%'
                 style={{cursor:"pointer"}}
                 onClick={toggleCard}
@@ -66,20 +95,21 @@ function InfoCard({posFromTop, src, artifact, artifactDescription, isCard, synop
                 src={src}
                 alt='Chakra UI'
                 />
+            </Flex>
         </Box>
       ) : (
         <Card
-        maxW='sm'
-        as={motion.div}
-        layout
-        bg='white'
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition='0.2s easeOut'
-        onClick={toggleCard}
-        initial={{ borderRadius: 5 }}
-        data-isOpen={isOpen}
-        mt={posFromTop}
+            maxW='sm'
+            as={motion.div}
+            layout
+            bg='white'
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition='0.2s easeOut'
+            onClick={toggleCard}
+            initial={{ borderRadius: 5 }}
+            data-isOpen={isOpen}
+            mt={posFromTop}
         >
             <CardBody as={motion.div} layout className='child' p={'10%'}>
                 {synopsis.map((str, index) => (
@@ -107,4 +137,4 @@ function InfoCard({posFromTop, src, artifact, artifactDescription, isCard, synop
 //     </motion.div>
 //   );
   
-  export default InfoCard;
+  export default ArtifactCard;

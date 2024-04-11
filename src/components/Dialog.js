@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import './Dialog.css';
 import { TypeAnimation } from 'react-type-animation';
 
-function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, options, showImage, imageMaxWProp, imageSrc}) {
+
+function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, options, showImage, imageMaxWProp, imageSrc, showArtifact, artifact}) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
@@ -72,7 +73,7 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                     exit={{ opacity: 0, y: '50%' }}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    {!showImage && (
+                    {!showImage && !showArtifact && (
                         <CardBody as={motion.div} layout className="child-open">
                             <Flex direction = 'column'>
                                 {!showAnswer && (
@@ -137,6 +138,45 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                                                 alt='Chakra UI'
                                             />
                                         </Flex>
+                                    </GridItem>
+                                </Grid>
+                            )}
+                            {showOptions && (
+                                <Flex flexDirection = 'row' mt='3%'>
+                                    {
+                                        Object.entries(options).map(([key, optionValues]) => (
+                                            <Button mr='2%' minW='10%' onClick={() => {
+                                                setAnswer([options[key]]);
+                                                setShowAnswer(true);
+                                                setShowOptions(false);
+                                            }}>
+                                                {key}
+                                            </Button>
+                                        ))
+                                    }
+                                </Flex>
+                                
+                            )}
+                        </CardBody>
+                    )}
+                    {showArtifact && (
+                        <CardBody as={motion.div} layout className="child-open" maxH='100%' maxW='100%'>
+                            {!showAnswer && (
+                                <TypeAnimation
+                                    sequence={dialog}
+                                    wrapper="span"
+                                    speed={60}
+                                    style={{ fontSize: '1em', display: 'inline-block' }}
+                                    omitDeletionAnimation={true}
+                                    cursor={false}
+                                />
+                            )}
+                            {showAnswer && (
+                                <Grid templateColumns='repeat(3, 1fr)' gap={3} minH='100%' maxH='100%'>
+                                    <GridItem colSpan={3} minW='100%' minH={'100%'}>
+                                        <Flex direction='row' justifyContent={'center'} alignItems={'center'}>
+                                            <Artifact link={artifact}></Artifact>
+                                        </Flex>
                                         
                                     </GridItem>
                                 </Grid>
@@ -168,7 +208,6 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
         <Box boxSize='xs' maxW='70%' minH='100%' pt={posFromTop}>
             <Box 
                 maxW={imageMaxWProp}
-                
                 as={motion.div}
                 layout
                 animate={{
@@ -178,7 +217,7 @@ function Dialog({posFromTop, charSrc, dialogSeq, isCard, charName, charRole, opt
                         ease: 'easeInOut', // Easing function
                         repeat: Infinity, // Loop the animation infinitely
                     },
-                    }}
+                }}
             >
                 <Image
                     style={{cursor:"pointer"}}

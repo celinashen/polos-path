@@ -13,6 +13,9 @@ function StaticCard({posFromTop, hasAvatar, hasImage, text, src}) {
         <Card 
             maxW='sm'
             mt={posFromTop}
+            bg="#2E2C2C" 
+            color="white"
+            opacity = "90%"
         >
             <CardBody className="child" p={'10%'}>
                 {hasAvatar && (

@@ -67,6 +67,7 @@ function ImageCard({posFromTop, synopsis, cta, hasAvatar, src, hasImageDescripti
                             <GridItem colSpan={hasImageDescription ? 2 : 3} maxW='100%'>
                                 <Image
                                     maxW='100%'
+                                    maxH='50vh'
                                     objectFit='contain'
                                     src={src}
                                     alt='Chakra UI'
@@ -84,12 +85,15 @@ function ImageCard({posFromTop, synopsis, cta, hasAvatar, src, hasImageDescripti
                             <Grid templateColumns='repeat(3, 1fr)' gap={3} minH='100%'>
                                 {hasImage && (
                                     <GridItem colSpan={hasImageDescription ? 2 : 3} maxW='100%'>
-                                        <Image
-                                            maxW='100%'
-                                            objectFit='contain'
-                                            src={src}
-                                            alt='Chakra UI'
-                                        />
+                                        <Flex direction='row' justifyContent={'center'} alignItems='center'>
+                                            <Image
+                                                maxW='100%'
+                                                maxH='50vh'
+                                                objectFit='contain'
+                                                src={src}
+                                                alt='Chakra UI'
+                                            />
+                                        </Flex>
                                     </GridItem>
                                 )}
                                 {hasImageDescription && (

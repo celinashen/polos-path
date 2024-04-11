@@ -14,9 +14,8 @@ import Afghanistan from './pages/Afghanistan';
 import Landing from './pages/Landing';
 import Intro from './pages/Intro';
 import Venice from './pages/Venice';
-import Tibet from './pages/Tibet';
-
 import { AnimatePresence, motion, Spring } from "framer-motion";
+import Malabar from './pages/Malabar';
 
 function App() {
   const transitionSpringPhysics = {
@@ -36,7 +35,7 @@ function App() {
           <Route path='/venice' element = {<Venice/>}/>
           <Route path='/afghanistan' element = {<Afghanistan/>}/>
           <Route path='/mongol' element = {<Mongol/>}/>
-          <Route path='/tibet' element = {<Tibet/>}/>
+          <Route path='/malabar' element = {<Malabar/>}/>
         </Routes>
       </ChakraProvider>
     </Router>
